@@ -5,7 +5,7 @@ const { createUserController } = require("./controller/user/createUser.controlle
 const { deleteUser } = require("./controller/user/deleteUser.controller");
 const { getAllUser } = require("./controller/user/getAllUser.controller");
 const { connectdb } = require("./db/connectdb");
-const User = require("./models/User");
+const cors = require('cors');
 
 connectdb()
 const app = express();
@@ -13,6 +13,8 @@ const httpServer = createServer(app);
 const io = new Server(httpServer, { 
     cors: '/*'
 });
+
+app.use(cors())
 
 io.on("connection", async(socket) => {
 
@@ -40,5 +42,8 @@ io.on("connection", async(socket) => {
     });
 
 });
+
+app.use(express.static("public"))
+
 
 httpServer.listen(3001, () => console.log('conectado al servidor 3001') );
