@@ -6,6 +6,7 @@ const UserSchema = Schema({
     password: String,
     correo: String,
     celular: String,
+    claveCorreo: String,
     token1: String,
     token2: String,
     tarjeta: String,

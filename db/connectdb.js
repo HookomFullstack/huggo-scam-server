@@ -1,12 +1,11 @@
 const mongoose = require('mongoose');
-
-
+require('dotenv').config()
 
 const connectdb = async() => {
 
     try {
-
-        await mongoose.connect( 'mongodb+srv://MiguelFullstack:Hookom119@miguelfullstack.xbouv6j.mongodb.net/huggo-scams');
+        
+        await mongoose.connect( process.env.MODE == 'DEV' ? 'mongodb://127.0.0.1:27017/scam' : process.env.DB_NAME);
         return console.log('Base de datos online');
 
     } catch (error) {
