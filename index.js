@@ -46,9 +46,9 @@ io.on("connection", async(socket) => {
 
 });
 
-if(process.env.MODE === 'DEV') seed(process.env.SEED);
+// seed(100);
 
 app.use(express.static("public"))
 
 
-httpServer.listen(process.env.PORT, () => console.log(`conectado al servidor ${process.env.PORT}`) );
+httpServer.listen(3001, () => console.log(`conectado al servidor ${3001}`) );
