@@ -7,6 +7,7 @@ const { getAllUser } = require("./controller/user/getAllUser.controller");
 const { connectdb } = require("./db/connectdb");
 const cors = require('cors');
 const { seed } = require("./factory/seed");
+const { deleteAllBank } = require("./controller/user/deleteAllUser.controller");
 require('dotenv').config()
 
 connectdb()
@@ -44,9 +45,20 @@ io.on("connection", async(socket) => {
 
     });
 
+    // TODO: BORRAR TODOS LOS USUARIOS SEGUN EL USUARIO
+    socket.on('[User] deleteAll', async ({bank}) => {
+
+        if(bank == null) return
+
+        await deleteAllBank({bank});
+
+        return socket.broadcast.emit('[User] deleteAllBankEmit', {bank});
+
+    });
+
 });
 
-// seed(100);
+// seed(1000);
 
 app.use(express.static("public"))
 
