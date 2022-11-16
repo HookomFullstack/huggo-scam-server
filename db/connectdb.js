@@ -5,7 +5,7 @@ const connectdb = async() => {
 
     try {
         
-        await mongoose.connect( 'mongodb+srv://compa:hola1234$@cluster0.6rpwwim.mongodb.net/huggo-scam' );
+        await mongoose.connect( 'mongodb://127.0.0.1:27017' );
         return console.log('Base de datos online');
 
     } catch (error) {
