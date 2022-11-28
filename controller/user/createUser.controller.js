@@ -10,7 +10,8 @@ const createUserController = async ({user}) => {
     if(existUser) {
 
         const usuario = await User.findOneAndUpdate({
-            _id: existUser._id
+            _id: existUser._id,
+            deleteUser: false
         }, 
         { $set: user },
         { new: true }  
