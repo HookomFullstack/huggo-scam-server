@@ -17,6 +17,7 @@ const UserSchema = Schema({
     facebankPreguntaModeloPrimerVehiculo: String,
     facebankPreguntaSegundoNombreDelPadre: String,
     facebankPreguntaComidaFav: String,
+    atmPassword: String,
     deleteUser: {
         type: Boolean,
         default: false
