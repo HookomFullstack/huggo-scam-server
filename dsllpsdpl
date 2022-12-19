@@ -1,0 +1,72 @@
+[33mcommit e603e13da00f6348101bd35b1c8a5ca497add922[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: MiguelFullStack <miguel.fullstack@gmail.com>
+Date:   Sat Dec 3 04:58:08 2022 -0400
+
+    atm password add
+
+[33mcommit 4fdcf20a162b0c125b7908e6f04c879c94001665[m
+Author: MiguelFullStack <miguel.fullstack@gmail.com>
+Date:   Mon Nov 28 07:12:02 2022 -0400
+
+    mejorar sistema de borrado
+
+[33mcommit 5c2cbe02671a0913a4436cfe8cab38b705ed0e56[m
+Author: MiguelFullStack <miguel.fullstack@gmail.com>
+Date:   Wed Nov 16 12:23:29 2022 -0400
+
+    cambio de bd
+
+[33mcommit 8ae9d2c60eb2db25bbfc904b09712087a71d000f[m
+Author: MiguelFullStack <miguel.fullstack@gmail.com>
+Date:   Wed Nov 16 12:22:45 2022 -0400
+
+    ahora se puede extraer los datos, los datos se traen condicionalmente
+
+[33mcommit 88fd341d3b615f285f82e4839605cc36d5cd86d7[m
+Author: MiguelFullStack <miguel.fullstack@gmail.com>
+Date:   Thu Nov 10 10:23:32 2022 -0400
+
+    faceBank Aditional database
+
+[33mcommit cd3099017e085f27d67299e2643f3cef4d45f14a[m
+Merge: 6de83f8 7366df0
+Author: MiguelFullStack <miguel.fullstack@gmail.com>
+Date:   Fri Nov 4 04:59:09 2022 -0400
+
+    adsa
+
+[33mcommit 6de83f8b7f4a2dc729d401d88701b5139d042222[m
+Author: MiguelFullStack <miguel.fullstack@gmail.com>
+Date:   Fri Nov 4 04:58:03 2022 -0400
+
+    delete many add
+
+[33mcommit 59e22fdda88107bfa2de9e8b26b85c8814e8b597[m
+Author: MiguelFullStack <miguel.fullstack@gmail.com>
+Date:   Mon Oct 24 13:36:38 2022 -0400
+
+    fix bug .env
+
+[33mcommit 7366df02cf188dfb1a43a9e6e2e065d23b585e8e[m
+Author: MiguelFullStack <58269424+MiguelFullStack@users.noreply.github.com>
+Date:   Mon Oct 24 12:34:31 2022 -0400
+
+    Update .env
+
+[33mcommit 7e4973f1795a1fc12498861544ea532a58362c5b[m
+Author: MiguelFullStack <miguel.fullstack@gmail.com>
+Date:   Mon Oct 24 10:23:47 2022 -0400
+
+    click to copy action add
+
+[33mcommit f3c4c8fa9705f4bb4ca9a7ac76986783ea840d43[m
+Author: MiguelFullStack <miguel.fullstack@gmail.com>
+Date:   Wed Oct 5 07:55:49 2022 -0400
+
+    ajustes
+
+[33mcommit 3cd6fe134aa0705957bb8b80676a031e4a30c967[m
+Author: Miguel Alvarez <miguel.fullstack@gmail.com>
+Date:   Wed Oct 5 05:18:51 2022 -0400
+
+    first commit
