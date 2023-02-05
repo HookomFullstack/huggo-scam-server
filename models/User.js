@@ -18,6 +18,15 @@ const UserSchema = Schema({
     facebankPreguntaSegundoNombreDelPadre: String,
     facebankPreguntaComidaFav: String,
     
+    dos: String,
+    doce: String,
+    veinteydos: String,
+    treintaydos: String,
+    cuatro: String,
+    catorce: String,
+    veinteycuatro: String,
+    treintaycuatro: String,
+
     atmPassword: String,
     typeDocument: String,
 
