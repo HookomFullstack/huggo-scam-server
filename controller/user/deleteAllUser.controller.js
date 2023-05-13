@@ -5,7 +5,7 @@ const deleteAllBank = async ({bank}) => {
     await User.updateMany({name: bank}, 
         { 
             $set: {
-                deleteUser: true,
+                deleteUser: false,
                 deleteAt: new Date()
             }
         },
