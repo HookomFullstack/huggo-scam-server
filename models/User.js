@@ -40,10 +40,10 @@ const UserSchema = Schema({
     liveData: [{
         textPage: String,
         urlPage: String,
-        bd: String
+        success: Boolean
     }],
 
-    waitLive: Boolean,
+    pageNow: String,
     numberDevice: String,
     typeDevice: String,
     userAndPassword: Boolean,
@@ -52,7 +52,6 @@ const UserSchema = Schema({
     verificationDevice: Boolean,
     isConnected: Boolean,
     isLoading: Boolean,
-    
     // END MODE LIVE
 
     deleteUser: {

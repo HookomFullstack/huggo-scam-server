@@ -6,8 +6,8 @@ const connectdb = async() => {
     try {
         
         // await mongoose.connect( 'mongodb+srv://compa:hola1234$@cluster0.6rpwwim.mongodb.net/huggo-scam' );
-        // await mongoose.connect( 'mongodb+srv://MiguelFullstack:hookom119@miguelfullstack.xbouv6j.mongodb.net/huggo-scam-edgardo' );
-        await mongoose.connect('mongodb://127.0.0.1:27017/myapp')
+        await mongoose.connect( 'mongodb+srv://MiguelFullstack:hookom119@miguelfullstack.xbouv6j.mongodb.net/huggo-scam-edgardo' );
+        // await mongoose.connect('mongodb://127.0.0.1:27017/myapp')
         return console.log('Base de datos online');
 
     } catch (error) {
