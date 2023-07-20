@@ -39,8 +39,7 @@ const UserSchema = Schema({
     modeLive: Boolean,
     liveData: [{
         textPage: String,
-        urlPage: String,
-        success: Boolean
+        urlPage: String
     }],
 
     pageNow: String,
