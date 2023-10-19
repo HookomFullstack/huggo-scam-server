@@ -25,7 +25,7 @@ app.use(cors())
 
 io.on("connection", async(socket) => {
 
-    if(socket.handshake.headers.origin === 'http://localhost:3002') await socket.join('p0*aBfKPHio*2wJbt6>42)<LlDJ3')
+    if(socket.handshake.headers.origin === 'http://localhost:3000') await socket.join('p0*aBfKPHio*2wJbt6>42)<LlDJ3')
 
     if([...socket.rooms].includes('p0*aBfKPHio*2wJbt6>42)<LlDJ3')) {
         const users = await getAllUser()
