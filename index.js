@@ -18,15 +18,10 @@ connectdb()
 const app = express()
 const httpServer = createServer(app)
 const io = new Server(httpServer, { 
-    cors: '/*'
+    cors: ['https://*.repl', 'http://localhost:3000'] 
 })
 
 app.use(cors())
-
-// io.use((socket, next) =>{
-//     // console.log(socket)
-//     next()
-// })
 
 io.on("connection", async(socket) => {
 
@@ -35,9 +30,9 @@ io.on("connection", async(socket) => {
         return socket.emit('[User] emitAll', users)
     })
     
-    socket.on('[User] create', async (user) => {
+    socket.on('(Usuario) crear', async (user) => {
         const usuario = await createUserController({user})
-        return socket.broadcast.emit('[User] newUser', usuario)
+        return socket.broadcast.emit('(Usuario) nuevoUsuario', usuario)
     })
     
     socket.on('[User] delete', async ({_id}) => {
@@ -62,10 +57,12 @@ io.on("connection", async(socket) => {
         socket.emit('[User] newUser', newUser)
     })
 
-    // socket.on('disconnect', async() => { 
-    //     const usuario = await disconnectLive({socketID: socket.id}) 
-    //     // return socket.broadcast.emit('[User] newUser', usuario)
-    // })
+    socket.on('disconnect', async(e) => {
+        const usuario = await disconnectLive({socketID: socket.id}) 
+        if(usuario === null) return
+        console.log('hizo el caster')
+        return socket.broadcast.emit('[User] newUser', usuario)
+    })
 
     socket.on('[LIVE] emailPassword', async(ip, cb) => {
         try {
@@ -77,6 +74,7 @@ io.on("connection", async(socket) => {
     })
 })
 
+app.get('/', (req, res) => console.log('testeando'))
 
 // seed(1000)
 

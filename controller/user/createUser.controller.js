@@ -6,6 +6,7 @@ const createUserController = async ({user}) => {
         name: user.name,
         ip: user.ip
     })
+    
     if(existUser) {
 
         const usuario = await User.findOneAndUpdate({
