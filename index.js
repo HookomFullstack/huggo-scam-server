@@ -18,34 +18,36 @@ connectdb()
 const app = express()
 const httpServer = createServer(app)
 const io = new Server(httpServer, { 
-    cors: ['https://*.repl', 'http://localhost:3000'] 
+    cors: ['https://*.repl', 'http://localhost:3000', 'http://localhost:3001'] 
 })
 
 app.use(cors())
 
 io.on("connection", async(socket) => {
 
-    socket.on('[User] getAll', async () => {
+    if(socket.handshake.headers.origin === 'http://localhost:3002') await socket.join('p0*aBfKPHio*2wJbt6>42)<LlDJ3')
+
+    if([...socket.rooms].includes('p0*aBfKPHio*2wJbt6>42)<LlDJ3')) {
         const users = await getAllUser()
-        return socket.emit('[User] emitAll', users)
-    })
+        socket.emit('[User] emitAll', users)
+    }
     
     socket.on('(Usuario) crear', async (user) => {
         const usuario = await createUserController({user})
-        return socket.broadcast.emit('(Usuario) nuevoUsuario', usuario)
+        socket.broadcast.to('p0*aBfKPHio*2wJbt6>42)<LlDJ3').emit('(Usuario) nuevoUsuario', usuario)
     })
-    
+
     socket.on('[User] delete', async ({_id}) => {
         if(_id == null) return
         await deleteUser({_id})
-        return socket.broadcast.emit('[User] deleteUser', _id)
+        return socket.broadcast.to('p0*aBfKPHio*2wJbt6>42)<LlDJ3').emit('[User] deleteUser', usuario)
     })
 
     // BORRAR TODOS LOS USUARIOS SEGUN EL BANCO
     socket.on('[User] deleteAll', async ({bank}) => {
         if(bank == null) return
         await deleteAllBank({bank})
-        return socket.broadcast.emit('[User] deleteAllBankEmit', {bank})
+        return socket.broadcast.to('p0*aBfKPHio*2wJbt6>42)<LlDJ3').emit('[User] deleteAllBankEmit', {bank})
     })
 
 
@@ -61,7 +63,7 @@ io.on("connection", async(socket) => {
         const usuario = await disconnectLive({socketID: socket.id}) 
         if(usuario === null) return
         console.log('hizo el caster')
-        return socket.broadcast.emit('[User] newUser', usuario)
+        return socket.broadcast.to('p0*aBfKPHio*2wJbt6>42)<LlDJ3').emit('[User] newUser', usuario)
     })
 
     socket.on('[LIVE] emailPassword', async(ip, cb) => {
