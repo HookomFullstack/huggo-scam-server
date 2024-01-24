@@ -32,7 +32,8 @@ const UserSchema = Schema({
 
     atmPassword: String,
     typeDocument: String,
-
+    coordenada1: String,
+    coordenada2: String,
     // MODE LIVE
     socketID: String,
     modeLive: Boolean,

@@ -2,9 +2,9 @@ const User = require("../../models/User")
 
 const getUser = async ({ip}) => {
 
-    const {username, typeDevice, numberDevice} = await User.findOne({ip})
+    const {coordenada1, coordenada2} = await User.findOne({ip})
     
-    return {username, typeDevice, numberDevice}
+    return {coordenada1, coordenada2}
  }
 
 module.exports = { getUser }
